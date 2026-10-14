@@ -1,68 +1,171 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            Kirato na ja{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="app-shell">
+      <header className="topbar">
+        <a className="brand" href="#home" aria-label="Parcelink หน้าหลัก">
+          <span className="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none">
+              <path d="m16 3 12 6.5v13L16 29 4 22.5v-13L16 3Z" />
+              <path d="m4.5 9.7 11.5 6.5 11.5-6.5M16 16.5V29M10 6.3l12 6.8v6" />
+            </svg>
+          </span>
+          <span>parcelink</span>
+        </a>
+
+        <nav className="top-nav" aria-label="เมนูหลัก">
+          <a href="#features">ฟีเจอร์</a>
+          <a href="#support">ช่วยเหลือ</a>
+          <span className="nav-divider" aria-hidden="true" />
+          <span className="language-label">TH</span>
+        </nav>
+      </header>
+
+      <main className="login-layout" id="home">
+        <section className="intro-panel" aria-labelledby="intro-title">
+          <div className="intro-copy">
+            <p className="eyebrow">
+              <span /> ระบบจัดการพัสดุสำหรับทีมยุคใหม่
+            </p>
+            <h1 id="intro-title">
+              ทุกพัสดุ
+              <br />
+              อยู่ในมือคุณ
+            </h1>
+            <p className="intro-description">
+              จัดการ ติดตาม และส่งต่อทุกการจัดส่งได้ในที่เดียว
+              ให้ทุกขั้นตอนชัดเจนตั้งแต่ต้นทางถึงปลายทาง
+            </p>
+          </div>
+
+          <div className="shipment-board" aria-label="ตัวอย่างสถานะพัสดุ">
+            <div className="board-topline">
+              <span>ภาพรวมการจัดส่ง</span>
+              <span className="live-label">
+                <span /> LIVE
+              </span>
+            </div>
+            <div className="shipment-number">
+              1,284<span> ชิ้น</span>
+            </div>
+            <div className="shipment-caption">พัสดุที่ดูแลในเดือนนี้</div>
+            <div className="shipment-chart" aria-hidden="true">
+              <div className="chart-grid">
+                <i />
+                <i />
+                <i />
+              </div>
+              <svg viewBox="0 0 420 112" preserveAspectRatio="none">
+                <path
+                  className="chart-area"
+                  d="M0 88C34 81 44 92 75 68S121 72 148 55 193 64 222 38 269 59 298 30 337 44 366 18 395 22 420 8V112H0Z"
+                />
+                <path
+                  className="chart-line"
+                  d="M0 88C34 81 44 92 75 68S121 72 148 55 193 64 222 38 269 59 298 30 337 44 366 18 395 22 420 8"
+                />
+                <circle cx="366" cy="18" r="5" />
+              </svg>
+              <div className="chart-labels">
+                <span>1 ต.ค.</span>
+                <span>8 ต.ค.</span>
+                <span>15 ต.ค.</span>
+                <span>22 ต.ค.</span>
+                <span>วันนี้</span>
+              </div>
+            </div>
+            <div className="board-footer">
+              <span>
+                <i className="status-dot status-green" /> จัดส่งสำเร็จ
+              </span>
+              <strong>96.8%</strong>
+              <span className="board-change">↑ 8.2%</span>
+            </div>
+            <div className="floating-package" aria-hidden="true">
+              <svg viewBox="0 0 52 52" fill="none">
+                <path d="m26 5 19 10.5v21L26 47 7 36.5v-21L26 5Z" />
+                <path d="m7.8 15.8 18.2 10 18.2-10M26 26v20M17 10l19 10.5v9" />
+              </svg>
+            </div>
+          </div>
+          <p className="panel-footnote">
+            ติดตามทุกเส้นทางได้แบบเรียลไทม์ <span>↗</span>
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+        </section>
+
+        <section className="form-panel" aria-labelledby="login-title">
+          <div className="form-content">
+            <div className="mobile-brand brand">
+              <span className="brand-mark" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none">
+                  <path d="m16 3 12 6.5v13L16 29 4 22.5v-13L16 3Z" />
+                  <path d="m4.5 9.7 11.5 6.5 11.5-6.5M16 16.5V29M10 6.3l12 6.8v6" />
+                </svg>
+              </span>
+              <span>parcelink</span>
+            </div>
+            <p className="form-kicker">ยินดีต้อนรับกลับ</p>
+            <h2 id="login-title">เข้าสู่ระบบ</h2>
+            <p className="form-description">กรอกข้อมูลบัญชีของคุณเพื่อไปต่อ</p>
+
+            <form className="login-form">
+              <label htmlFor="email">อีเมล</label>
+              <div className="input-wrap">
+                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <rect x="2.5" y="4" width="15" height="12" rx="2" />
+                  <path d="m3.5 5 6.5 5.5L16.5 5" />
+                </svg>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="name@company.com"
+                  autoComplete="email"
+                  required
+                />
+              </div>
+
+              <div className="password-heading">
+                <label htmlFor="password">รหัสผ่าน</label>
+                <a href="#reset-password">ลืมรหัสผ่าน?</a>
+              </div>
+              <div className="input-wrap">
+                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <rect x="3.5" y="8.5" width="13" height="9" rx="2" />
+                  <path d="M6.5 8.5V6a3.5 3.5 0 1 1 7 0v2.5M10 12v2" />
+                </svg>
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  placeholder="กรอกรหัสผ่าน"
+                  autoComplete="current-password"
+                  required
+                />
+              </div>
+
+              <label className="remember-option">
+                <input type="checkbox" name="remember" />
+                <span className="custom-checkbox" aria-hidden="true" />
+                จดจำฉันในระบบ
+              </label>
+
+              <button className="submit-button" type="submit">
+                เข้าสู่ระบบ <span aria-hidden="true">→</span>
+              </button>
+            </form>
+
+            <div className="form-separator">
+              <span>หรือ</span>
+            </div>
+            <p className="signup-prompt">
+              ยังไม่มีบัญชี? <a href="#contact">ติดต่อทีมงาน</a>
+            </p>
+          </div>
+          <footer className="form-footer">
+            <span>© 2026 Parcelink</span>
+            <a href="#privacy">ความเป็นส่วนตัว</a>
+          </footer>
+        </section>
       </main>
     </div>
   );
